@@ -21,7 +21,9 @@ class DatabaseSeeder extends Seeder
             ShapeSeeder::class,
             ItemSeeder::class,
             ManufacturerSeeder::class,
-            DesignerSeeder::class
+            DesignerSeeder::class,
+            UserSeeder::class,
+            AdSeeder::class,
         ]);
     }
 }

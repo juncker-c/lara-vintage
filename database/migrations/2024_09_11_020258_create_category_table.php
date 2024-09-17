@@ -23,6 +23,7 @@ return new class extends Migration
             $table->dateTime('created_at');
             $table->dateTime('updated_at');
         });
+
         Schema::table('sub_categories', function (Blueprint $table) {
             $table->foreignIdFor(Category::class)->references('id')->on('categories');
         });

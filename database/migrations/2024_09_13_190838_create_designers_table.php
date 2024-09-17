@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Designer;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -22,6 +23,10 @@ return new class extends Migration
             $table->dateTime('created_at');
             $table->dateTime('updated_at');
         });
+
+        Schema::table('ads', function (Blueprint $table) {
+            $table->foreignIdFor(Designer::class)->references('id')->on('designers');
+        });
     }
 
     /**
@@ -30,5 +35,8 @@ return new class extends Migration
     public function down(): void
     {
         Schema::dropIfExists('designers');
+        Schema::table('ads', function (Blueprint $table) {
+            $table->dropForeignIdFor(Designer::class);
+        });
     }
 };
